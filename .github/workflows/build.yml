@@ -27,6 +27,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: ./caddy
+          context: https://github.com/${{ github.repository }}.git#${{ github.sha }}:caddy
           push: true
           tags: tinect/caddy:latest
