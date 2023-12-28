@@ -2,6 +2,7 @@ FROM php:8.3.0-fpm
 
 ENV IPE_GD_WITHOUTAVIF=1
 
+
 RUN apt-get clean \
  && apt-get update \
  && apt-get install -y libzip-dev zip \
