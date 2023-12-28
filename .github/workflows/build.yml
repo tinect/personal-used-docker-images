@@ -33,7 +33,16 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            src:
+              - '${{ matrix.image }}/**'
+
       - name: Build and push ${{ matrix.image }}
+        if: steps.changes.outputs.src == 'true'
         uses: docker/build-push-action@v5
         with:
           context: "{{defaultContext}}:${{ matrix.image }}"
