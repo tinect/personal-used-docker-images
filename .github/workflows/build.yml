@@ -17,7 +17,6 @@ jobs:
     permissions:
       contents: read
       packages: write
-      pull-requests: read
 
     steps:
       - name: Set up QEMU
@@ -34,7 +33,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: dorny/paths-filter@v2
         id: changes
         with:
