@@ -33,6 +33,4 @@ jobs:
         with:
           context: "{{defaultContext}}:caddy"
           push: true
-          tags: tinect/caddy:latest
-          secrets: |
-            GIT_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }}
+          tags: ghcr.io/tinect/caddy:latest
