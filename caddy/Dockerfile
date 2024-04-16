@@ -1,8 +1,14 @@
-# Build Caddy modules
-FROM caddy:2.7.6-builder-alpine AS caddy_builder
+FROM cgr.dev/chainguard/wolfi-base AS caddy_builder
+RUN apk add --no-cache xcaddy go
 RUN xcaddy build \
     --with github.com/caddy-dns/hetzner
 
-# Caddy image
-FROM caddy:2.7.6-alpine AS caddy
-COPY --from=caddy_builder /usr/bin/caddy /usr/bin/caddy
+# kills StackTrace, among other things
+RUN strip --strip-all caddy
+
+FROM cgr.dev/chainguard/static:latest
+COPY --from=caddy_builder /caddy /usr/bin/caddy
+
+ENV XDG_CONFIG_HOME /config
+ENV XDG_DATA_HOME /data
+CMD [ "/usr/bin/caddy", "run", "--config", "/etc/caddy/Caddyfile" ]
