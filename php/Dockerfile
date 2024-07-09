@@ -1,4 +1,4 @@
-FROM php:8.3.8-fpm
+FROM php:8.3.9-fpm
 
 ENV IPE_GD_WITHOUTAVIF=1
 
