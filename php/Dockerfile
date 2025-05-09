@@ -1,4 +1,4 @@
-FROM php:8.4.6-fpm@sha256:bdceea8abacbf5a18112a301f29a19ac4d1c41ea8303c3c8bdacdd749c0da583
+FROM php:8.4.7-fpm@sha256:1f4bf8e80cef5df7e91aad6d507b0127cb448a84f0243acdae552bd86abfac08
 
 ENV IPE_GD_WITHOUTAVIF=1
 
