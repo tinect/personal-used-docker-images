@@ -7,9 +7,6 @@ on:
 jobs:
   docker:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pull-requests: write
 
     steps:
       - name: Get new hash of caddy.yaml
