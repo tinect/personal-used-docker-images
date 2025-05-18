@@ -1,4 +1,4 @@
-name: Build
+name: Check Caddy Change
 on:
   schedule:
     - cron: '20 * * * *'
