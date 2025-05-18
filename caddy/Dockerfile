@@ -1,6 +1,6 @@
 #251ef2ef5a75758f80e280dac17b903920810bf0d9d106edd36100a5b6c5872a
 FROM cgr.dev/chainguard/wolfi-base AS caddy_builder
-RUN apk add --no-cache xcaddy go
+RUN apk add --no-cache xcaddy go git
 
 # see https://github.com/caddy-dns/hetzner/issues/14#issuecomment-2888331388
 RUN git clone https://github.com/Kugelschieber/caddy-dns-hetzner.git /fork
