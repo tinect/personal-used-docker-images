@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Get new hash of caddy.yaml
         run: |
-          echo "CADDY_HASH_NEW=$(curl -s https://raw.githubusercontent.com/wolfi-dev/os/refs/heads/main/caddy.yaml | xxh128sum | awk '{print $1}')" >> $GITHUB_ENV
+          echo "CADDY_HASH_NEW=$(curl -s https://raw.githubusercontent.com/wolfi-dev/os/refs/heads/main/caddy.yaml | sha256sum | awk '{print $1}')" >> $GITHUB_ENV
 
       - uses: actions/checkout@v4
 
