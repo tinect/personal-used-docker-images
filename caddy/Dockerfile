@@ -1,4 +1,4 @@
-#2024-08-28 19:37
+#251ef2ef5a75758f80e280dac17b903920810bf0d9d106edd36100a5b6c5872a
 FROM cgr.dev/chainguard/wolfi-base AS caddy_builder
 RUN apk add --no-cache xcaddy go
 RUN xcaddy build \
