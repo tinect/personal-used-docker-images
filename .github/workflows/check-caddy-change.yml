@@ -1,0 +1,35 @@
+name: Build
+on:
+  schedule:
+    - cron: '20 * * * *'
+  workflow_dispatch:
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Get new hash of caddy.yaml
+        run: |
+          echo "CADDY_HASH_NEW=$(curl -s https://raw.githubusercontent.com/wolfi-dev/os/refs/heads/main/caddy.yaml | xxh128sum | awk '{print $1}')" >> $GITHUB_ENV
+
+      - uses: actions/checkout@v4
+
+      - name: Update caddy.yaml hash
+        run: |
+          sed -i "1s/.*/#${CADDY_HASH_NEW}/" caddy/Dockerfile
+
+      - name: Commit changes
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: "chore: update caddy"
+          title: "chore: update caddy"
+          branch: chore/update-caddy
+          base: main
+          reviewers: "tinect"
+          delete-branch: true
+          body: |
+            Check https://github.com/wolfi-dev/os/commits/main/caddy.yaml
