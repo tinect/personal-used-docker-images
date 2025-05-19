@@ -1,4 +1,4 @@
-#251ef2ef5a75758f80e280dac17b903920810bf0d9d106edd36100a5b6c5872a
+#e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 FROM cgr.dev/chainguard/wolfi-base AS caddy_builder
 RUN apk add --no-cache xcaddy go git
 
