@@ -16,6 +16,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Update caddy.yaml hash
+        if: env.CADDY_HASH_NEW != 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
         run: |
           sed -i "1s/.*/#${CADDY_HASH_NEW}/" caddy/Dockerfile
 
