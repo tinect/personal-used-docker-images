@@ -13,7 +13,9 @@ RUN apt-get clean \
     gettext \
     wget \
     unzip \
-    libicu-dev libc-client-dev libkrb5-dev \
+    libicu-dev \
+    #libc-client-dev \
+    libkrb5-dev \
     --no-install-recommends \
 && docker-php-ext-configure gd \
        --enable-gd --with-freetype --with-jpeg \
