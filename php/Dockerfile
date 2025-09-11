@@ -1,4 +1,4 @@
-FROM php:8.4.11-fpm@sha256:57a7b038fd845806447557c95503fd3f08d45cb8e549f7e3dcc8210b08642382
+FROM php:8.4.12-fpm@sha256:64eaf68629f9d9d82871f6c1d0cc1bdded06cf278c274caf8eb5d07f1da97448
 
 ENV IPE_GD_WITHOUTAVIF=1
 
@@ -13,7 +13,9 @@ RUN apt-get clean \
     gettext \
     wget \
     unzip \
-    libicu-dev libc-client-dev libkrb5-dev \
+    libicu-dev \
+    #libc-client-dev \
+    libkrb5-dev \
     --no-install-recommends \
 && docker-php-ext-configure gd \
        --enable-gd --with-freetype --with-jpeg \
