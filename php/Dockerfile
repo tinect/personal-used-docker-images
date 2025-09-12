@@ -32,3 +32,4 @@ RUN apt-get clean \
       soap \
       zip \
 && apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/*
+COPY --link --from=composer/composer:2-bin /composer /usr/local/bin/composer
