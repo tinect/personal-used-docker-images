@@ -19,6 +19,7 @@ RUN apt-get update \
       bz2 \
       soap \
       zip \
+      ftp \
  && rm -rf /var/lib/apt/lists/*
 
 RUN usermod -u 1000 www-data && groupmod -g 1000 www-data
